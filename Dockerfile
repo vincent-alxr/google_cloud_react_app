@@ -1,8 +1,8 @@
-FROM node:18
+FROM node:18 AS node
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm build
+RUN npm run build
 
 FROM nginx:1.25.1
 COPY nginx.conf /etc/nginx/nginx.conf
